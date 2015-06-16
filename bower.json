@@ -1,0 +1,20 @@
+{
+  "name": "tpcomparefrontendframeworks",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rengokantai/tpcomparefrontendframeworks",
+  "authors": [
+    "Hernan Y.Ke <yuriqiao@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember": "1.11.0",
+    "ember-data": "~0.0.14"
+  }
+}
