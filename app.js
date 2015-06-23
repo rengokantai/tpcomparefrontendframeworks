@@ -18,7 +18,7 @@ app.Contact = DS.Model.extend({
 app.ContactSerializer = DS.RESTSerializer.extend({
     extractArray:function(store,primaryType,payload){
         payload={contacts:payload};
-        this._super(store,primaryType,payload);
+        return this._super(store,primaryType,payload);
     },
 
     extractSingle: function(store,primaryType,payload,recordId){
@@ -41,12 +41,12 @@ app.Router.reopen({
 
 app.Router.map(function(){
     this.resource('contacts');
-    this.resource('contact',{path:'contaces/:contact_id'});
+    this.resource('contact',{path:'contacts/:contact_id'});
     this.route('new',{path:'contact/new'});
 });
 
 app.IndexRoute =Ember.Route.extend({
-    redirext:function(){
+    redirect:function(){
         this.transitionTo('contacts');
     }
 });

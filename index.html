@@ -5,7 +5,6 @@
     <title>Test ember</title>
 </head>
 <body>
-
 <script type="text/x-handlebars" id="application">
     <div id="main">
         <header>
@@ -14,10 +13,39 @@
             </h1>
             <div id="app">
                 {{outlet}}
-            </div>git
+            </div>
         </header>
     </div>
 </script>
+
+<script type="text/x-handlebars" id="contacts">
+    <div class="actions">
+        {{#link-to 'new'}}New{{/link-to}}
+    </div>
+    <ul>
+        {{#each contact in model}}
+        <li>
+            {{#link-to 'contact' contact}}
+            {{contact.firstName}}{{contact.lastName}}
+            <span>{{contact.email}}</span>
+            {{/link-to}}
+        </li>
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/x-handlebars" id="contact">
+<h2>{{model.firstName}{{model.lastName}}</h2>
+
+    <p><label for="">First Name: </label>{{input value=model.firstName}}</p>
+
+    <p><label for="">Last Name: </label>{{input value=model.lastName}}</p>
+
+    <p><label for="">Email: </label>{{input value=model.email}}</p>
+    <p> <button {{action 'update'}}>Update </button></p>
+    <p> <button {{action 'delete'}}>Delete </button></p>
+</script>
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/handlebars/handlebars.js"></script>
 <script src="bower_components/ember/ember-template-compiler.js"></script>
